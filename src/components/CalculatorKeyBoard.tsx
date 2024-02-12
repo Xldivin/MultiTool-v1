@@ -3,16 +3,12 @@ import Button from "./ButtonComponent";
 import { View, Text } from "react-native";
 import { Styles } from "../styles/GlobalStyles";
 import { myColors } from "../styles/Colors";
-import { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext";
 
-export default function MyKeyboard() {
+export default function CalculatorKeyBoard() {
   const [firstNumber, setFirstNumber] = React.useState("");
   const [secondNumber, setSecondNumber] = React.useState("");
   const [operation, setOperation] = React.useState("");
   const [result, setResult] = React.useState<number | null >(null);
-  const theme = useContext(ThemeContext);
-
   const handleNumberPress = (buttonValue: string) => {
     if (firstNumber.length < 10) {
       setFirstNumber(firstNumber + buttonValue);
@@ -95,7 +91,7 @@ export default function MyKeyboard() {
       >
         <Text style={Styles.screenSecondNumber}>
           {secondNumber}
-          <Text style={{ color: theme === "light" ? "#4E505F" : "#4E505F", fontSize: 50, fontWeight: '500' }}>{operation}</Text>
+          <Text style={{ color:"#4E505F", fontSize: 50, fontWeight: '500' }}>{operation}</Text>
         </Text>
         {firstNumberDisplay()}
       </View>

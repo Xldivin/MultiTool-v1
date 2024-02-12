@@ -1,42 +1,15 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Switch, Text, View } from "react-native";
-import { ThemeContext } from "./src/context/ThemeContext";
-import { useState } from "react";
-import { myColors } from "./src/styles/Colors";
-import MyKeyboard from "./src/components/CalculatorComponent";
+import 'react-native-gesture-handler';
+import React from "react";
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import Calculator from './src/view/Calculator';
+import Contacts from './src/view/Contacts';
 
 export default function App() {
-  const [theme, setTheme] = useState("light");
+  const Drawer = createDrawerNavigator();
   return (
-    <ThemeContext.Provider value={theme}>
-      <SafeAreaView
-        style={
-          theme === "light"
-            ? styles.container : styles.container2
-        }
-      >
-        <StatusBar style="auto" />
-        <Switch
-          value={theme === "dark"}
-          onValueChange={() => setTheme(theme === "light" ? "dark" : "light")}
-        />
-        <MyKeyboard />
-      </SafeAreaView>
-    </ThemeContext.Provider>
+    <Drawer.Navigator>
+    <Drawer.Screen name="Calculator" component={Calculator} />
+    <Drawer.Screen name="Article" component={Contacts} />
+  </Drawer.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: myColors.light,
-    alignItems: "center",
-    justifyContent: "flex-start",
-  },
-  container2: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-start",
-    backgroundColor: "black"
-  },
-});

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { TouchableOpacity, Text } from "react-native";
-import { ThemeContext } from "../context/ThemeContext";
 import { Styles } from "../styles/GlobalStyles";
+import React from "react";
 
 interface ButtonProps {
   onPress: () => void;
@@ -18,15 +18,12 @@ export default function Button({
   isGray,
   size,
 }: ButtonProps) {
-  const theme = useContext(ThemeContext);
   let buttonStyle;
 
   if (isBlue) {
     buttonStyle = Styles.btnBlue;
   } else if (isGray) {
     buttonStyle = Styles.btnGray;
-  } else if (theme === "light") {
-    buttonStyle = Styles.btnLight;
   } else {
     buttonStyle = Styles.btnDark;
   }
@@ -45,8 +42,6 @@ export default function Button({
       <Text
         style={
           isBlue || isGray
-            ? Styles.smallTextLight
-            : theme === "dark"
             ? Styles.smallTextLight
             : Styles.smallTextDark
         }
