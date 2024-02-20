@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Switch, Text, View } from "react-native";
-import { myColors } from "../styles/Colors";
+import { SafeAreaView, StyleSheet } from "react-native";
 import CalculatorKeyBoard from "../components/CalculatorKeyBoard";
 import React from "react";
 
@@ -16,12 +15,6 @@ export default function Calculator() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: myColors.light,
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-  },
   container2: {
     flex: 1,
     alignItems: "flex-start",
