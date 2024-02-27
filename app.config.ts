@@ -2,6 +2,14 @@ export default {
   expo: {
     name: "calculator",
     slug: "calculator",
+    plugins: [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ]
+    ],
     version: "1.0.0",
     orientation: "portrait",
     icon: "./assets/icon.png",
@@ -11,7 +19,6 @@ export default {
       resizeMode: "contain",
       backgroundColor: "#ffffff",
     },
-    plugins: ["@react-native-google-signin/google-signin"],
     assetBundlePatterns: ["**/*"],
     ios: {
       supportsTablet: true,

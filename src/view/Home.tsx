@@ -15,22 +15,22 @@ export default function Home() {
     toggleTheme(newTheme);
   };
 
-  useEffect(() => {
-    GoogleSignin.configure({
-      webClientId:
-        "851639951476-m8t4dppklc5kt2dv4c0qahiuru1im0p3.apps.googleusercontent.com",
-    });
-  }, []);
+  // useEffect(() => {
+  //   GoogleSignin.configure({
+  //     webClientId:
+  //       "851639951476-m8t4dppklc5kt2dv4c0qahiuru1im0p3.apps.googleusercontent.com",
+  //   });
+  // }, []);
 
-  const signin = async () => {
-    try {
-      await GoogleSignin.hasPlayServices();
-      const user = await GoogleSignin.signIn();
-      setUserInfo(user);
-    } catch (e) {
-      setError(e);
-    }
-  };
+  // const signin = async () => {
+  //   try {
+  //     await GoogleSignin.hasPlayServices();
+  //     const user = await GoogleSignin.signIn();
+  //     setUserInfo(user);
+  //   } catch (e) {
+  //     setError(e);
+  //   }
+  // };
   return (
     <SafeAreaView style={styles.container2}>
       <StatusBar style="auto" />
@@ -38,7 +38,6 @@ export default function Home() {
         title={theme === "light" ? "Dark" : "Light"}
         onPress={() => handleToggleTheme()}
       />
-      <GoogleSigninButton size={GoogleSigninButton.Size.Standard} color={GoogleSigninButton.Color.Dark} onPress={signin} />
     </SafeAreaView>
   );
 }
